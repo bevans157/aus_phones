@@ -83,11 +83,16 @@ class AusPhones
   end
 
   def dial_domestic
-    #
+    "#{phone_number.area_code}#{phone_number.number}"
   end
 
   def dial_international
-    #
+    if (phone_number.area_code.start_with?('0') || phone_number.number.start_with?('0')) then
+      dial = "#{phone_number.area_code}#{phone_number.number}"
+      return dial.sub(/^0/, CNF.prefix)
+    else
+      return nil
+    end
   end
 
   def format_local

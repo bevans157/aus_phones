@@ -40,9 +40,12 @@ my_phone5 = AusPhones.new '1800 00 00 00'
 
 my_phone1 = AusPhones.new '+61 2 9900 0000'
 puts my_phone.is_valid?             # [true/false] is valid Australian phone number
+puts my_phone.is_form_valid?        # [true/false] is valid number for form entry
 puts my_phone.is_mobile?            # [true/false] is mobile phone number
 puts my_phone.is_landline?          # [true/false] is landline phone number
 puts my_phone.is_satellite?         # [true/false] is satellite phone number
+puts my_phone.is_voip?              # [true/false] is voip phone number
+puts my_phone.is_data?              # [true/false] is data phone number
 puts my_phone.is_nongeo?            # [true/false] is non-geographical phone number
 puts my_phone.is_test?              # [true/false] is test number
 puts my_phone.is_fictitious?        # [true/false] is fictitious number (film, tv, print, advertising etc)

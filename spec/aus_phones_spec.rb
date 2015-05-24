@@ -144,4 +144,27 @@ RSpec.describe AusPhones do
     expect(AusPhones.new('+61 2 9900 +0000').is_form_valid?).to eq(false)
   end
 
+  it 'identifies correct area codes' do
+    expect(AusPhones.new('+61 (2) 3300 0000').area_code).to eq('02')
+    expect(AusPhones.new('(02) 3300 0000').area_code).to eq('02')
+  end
+
+  it 'generates number for dialing local' do
+    expect(AusPhones.new('(02) 3300 0000').dial_local).to eq('33000000')
+    expect(AusPhones.new('(0)488 000 000').dial_local).to eq('0488000000')
+  end
+
+  it 'generates number for dialing domestic' do
+    expect(AusPhones.new('(02) 3300 0000').dial_domestic).to eq('0233000000')
+    expect(AusPhones.new('(0)488 000 000').dial_domestic).to eq('0488000000')
+  end
+
+  it 'generates number for dialing international' do
+    expect(AusPhones.new('(02) 3300 0000').dial_international).to eq('61233000000')
+    expect(AusPhones.new('(0)488 000 000').dial_international).to eq('61488000000')
+  end
+
+
+
+
 end
