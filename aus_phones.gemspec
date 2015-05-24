@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['ben.s.evans@gmail.com']
   spec.summary       = 'Australian phone number validator'
   spec.description   = 'AusPhones validates and identifies Australian phone numbers by region and type (mobile, land-line etc) '
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/bevans157/aus_phone'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
