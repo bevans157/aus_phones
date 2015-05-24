@@ -83,7 +83,11 @@ class AusPhones
   end
 
   def dial_domestic
-    "#{phone_number.area_code}#{phone_number.number}"
+    if (phone_number.number.to_s.size == 0) then
+      return nil
+    else
+      "#{phone_number.area_code}#{phone_number.number}"
+    end
   end
 
   def dial_international
@@ -96,7 +100,25 @@ class AusPhones
   end
 
   def format_local
-    #
+    if (phone_number.number.to_s.size == 0)
+      return nil
+    elsif (phone_number.number.to_s.size == 12)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size == 11)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size == 10)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size == 9)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size == 8)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size == 7)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size == 6)
+      return phone_number.number
+    elsif (phone_number.number.to_s.size < 6)
+      return phone_number.number
+    end
   end
 
   def format_domestic
