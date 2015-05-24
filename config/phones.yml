@@ -1,0 +1,599 @@
+---
+
+# Data taken from:
+#   http://en.wikipedia.org/wiki/Telephone_numbers_in_Australia
+#   https://www.accesscomms.com.au/reference/testnumb.htm
+#
+# NOTE: Latest match takes priority
+#
+# Each phone profile starts with a regex to be matched against the input number
+# the capture of the regex must be the number without area_code
+#
+# NOTE: The valid flag here indicates if the number may be entered as a contact
+#
+
+prefix: '61'
+phones:
+#  - {pattern: '', valid: true, area_code: '', type: 'landline', carrier: '', state: '', region: '', description: ''}
+  # Emergency Numbers
+  - {pattern: '^(000)$',                  valid: false, area_code: '', type: 'emergency', carrier: '', state: '', region: '', description: 'Emergency (Police, Fire, Ambulance)'}
+  - {pattern: '^(106)$',                  valid: false, area_code: '', type: 'emergency', carrier: '', state: '', region: '', description: 'TTY emergency (for the hearing-impaired)'}
+  - {pattern: '^(112)$',                  valid: false, area_code: '', type: 'emergency', carrier: '', state: '', region: '', description: 'Emergency (from GSM mobile phones only)'}
+  - {pattern: '^(999)$',                  valid: false, area_code: '', type: 'emergency', carrier: '', state: '', region: '', description: 'Emergency US standard - redirects'}
+  # Non Geographic numbers
+  - {pattern: '^(11)$',                   valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Community service'}
+  - {pattern: '^(1100)$',                 valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Dial Before You Dig'}
+  - {pattern: '^(114[0-9]{5})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Mass calling service'}
+  - {pattern: '^(119[0-9])$',             valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Community service (e.g. 1194 is time and 1196 is weather)'}
+  - {pattern: '^(12)$',                   valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Network services'}
+  - {pattern: '^(122[0-9])$',             valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Operator services (e.g. 1223 is directory assistance)'}
+  - {pattern: '^(1225)$',                 valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'International directory assistance'}
+  - {pattern: '^(123[0-9])$',             valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Operator services (e.g. 1234 is Sensis personal assistance)'}
+  - {pattern: '^(124[0-9]{2})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Operator services (e.g. 12456 is Sensis Call Connect)'}
+  - {pattern: '^(125[0-9]{3})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Telstra Mobile Services (e.g. 125111 is Telstra Mobile Customer Service)'}
+  - {pattern: '^(1268[0-9])$',            valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Internal network services'}
+  - {pattern: '^(1268[0-9]{4})$',         valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Internal network services'}
+  - {pattern: '^(1268[0-9]{6})$',         valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Internal network services'}
+  - {pattern: '^(127)$',                  valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Testing numbers (e.g. 12722123 reads your number from a Telstra line, 12723123 reads your number for an Optus line) (length varies)'}
+  - {pattern: '^(1282)$',                 valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Call information service'}
+  - {pattern: '^(128[0-9]{2})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Call information service'}
+  - {pattern: '^(13[0-9]{4})$',           valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: '"Local Rate" calls'}
+  - {pattern: '^(1300[0-9]{6})$',         valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: '"Local Rate" calls'}
+  - {pattern: '^(1345[0-9]{4})$',         valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Local rate calls (only used for back-to-base monitored alarm systems)'}
+  - {pattern: '^(15)$',                   valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Internal network testing'}
+  - {pattern: '^(180[0-9]{4})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'FreeCall'}
+  - {pattern: '^(1800[0-9]{6})$',         valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'FreeCall'}
+  - {pattern: '^(188[0-9]{4})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Premium SMS (since moved to 19 range)'}
+  - {pattern: '^(19[0-9]{4})$',           valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Premium SMS'}
+  - {pattern: '^(19[0-9]{6})$',           valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Premium SMS'}
+  - {pattern: '^(190[0-9]{7})$',          valid: false, area_code: '', type: 'nongeo', carrier: '', state: '', region: '', description: 'Premium rate services (usually 1902 and 1900)'}
+  #PSTN Carrier Test Numbers
+  #Test Number	Service
+  - {pattern: '^(12711)$',                valid: false, area_code: '', type: 'test', carrier: '', state: '', region: '', description: 'Long distance carrier pre-selection confirmation'}
+  - {pattern: '^(1800801920)$',           valid: false, area_code: '', type: 'test', carrier: '', state: '', region: '', description: 'Own number RVA'}
+  # Telstra Test Numbers
+  # Test Number	Service
+  - {pattern: '^(127220)$',               valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'CND send status'}
+  - {pattern: '^(12722123)$',             valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'Own number RVA (old number 19 123)'}
+  - {pattern: '^(12722199)$',             valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'Ringback (old number 199)'}
+  - {pattern: '^(1272240001)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The number you have called is not available from this service"'}
+  - {pattern: '^(1272240003)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"This service is not connected"'}
+  - {pattern: '^(1272240004)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"Your attempt to use this feature has been unsuccessful"'}
+  - {pattern: '^(1272240005)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The feature you have tried to to use is not provided"'}
+  - {pattern: '^(1272240006)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The number you have called is not connected"'}
+  - {pattern: '^(1272240007)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'Recorded busy tone'}
+  - {pattern: '^(1272240008)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"Congratulations. You have accessed a standard network test message recording"'}
+  - {pattern: '^(1272240009)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The person you are dialling now has a new telephone number. To find out the new number please call Telstras changed number information service"'}
+  - {pattern: '^(1272240010)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The number you are calling is currently unavailable"'}
+  - {pattern: '^(1272240020)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The number you have called is not compatible with your equipment"'}
+  - {pattern: '^(1272240023)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"The service type you have requested is not provided"'}
+  - {pattern: '^(1272240024)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"You have attempted to call via a service provider network. All lines are currently busy. Please delay your call for a short time"'}
+  - {pattern: '^(1272240033)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"This number is not in service. Please use the alternate number for the person you are trying to contact"'}
+  - {pattern: '^(1272240034)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"This telephone number cannot be dialled with an area code. Please try again without using the area code"'}
+  - {pattern: '^(1272240035)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"Thank you for using Telstra for your long distance calls"'}
+  - {pattern: '^(1272240036)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'Congestion tone'}
+  - {pattern: '^(1272240037)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'Congestion tone'}
+  - {pattern: '^(1272240064)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"Operator assisted calls are not permitted to this number"'}
+  - {pattern: '^(1272242209)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"Your Telstra call waiting feature is on"'}
+  - {pattern: '^(1272242210)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: '"Your Telstra call waiting feature is off"'}
+  - {pattern: '^(1272242211)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'tone... "Your Telstra call waiting feature is on"'}
+  - {pattern: '^(1272242212)$',           valid: false, area_code: '', type: 'test', carrier: 'Telstra', state: '', region: '', description: 'tone... "Your Telstra call waiting feature is off"'}
+  # Optus Test Numbers
+  # Test Number	Service
+  - {pattern: '^(1272312)$',              valid: false, area_code: '', type: 'test', carrier: 'Optus', state: '', region: '', description: 'Own Number RVA (old number 127 2311)'}
+  - {pattern: '^(1272322)$',              valid: false, area_code: '', type: 'test', carrier: 'Optus', state: '', region: '', description: '1kHz'}
+  - {pattern: '^(1272399)$',              valid: false, area_code: '', type: 'test', carrier: 'Optus', state: '', region: '', description: 'Ringback'}
+  # Central East region (02)
+  - {pattern: '^02(33[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Gosford, Central Coast',                   description: ''}
+  - {pattern: '^02(37[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Armidale, Tamworth, Northern Tablelands',  description: ''}
+  - {pattern: '^02(38[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bowral, Crookwell, Goulburn, Marulan',     description: ''}
+  - {pattern: '^02(39[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Griffith, Wagga Wagga, Riverina',          description: ''}
+  - {pattern: '^02(40[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Newcastle, Lower Hunter',                  description: ''}
+  - {pattern: '^02(41[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Newcastle, Lower Hunter',                  description: ''}
+  - {pattern: '^02(42[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Wollongong',                               description: ''}
+  - {pattern: '^02(43[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Gosford, Central Coast',                   description: ''}
+  - {pattern: '^02(44[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Batemans Bay, Moruya, Nowra',              description: ''}
+  - {pattern: '^02(45[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Windsor, Richmond',                        description: ''}
+  - {pattern: '^02(46[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Campbelltown',                             description: ''}
+  - {pattern: '^02(47[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Penrith, Blue Mountains',                  description: ''}
+  - {pattern: '^02(48[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bowral, Crookwell, Goulburn, Marulan',     description: ''}
+  - {pattern: '^02(49[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Newcastle, Lower Hunter',                  description: ''}
+  - {pattern: '^02(50[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Albury, Corryong, Wodonga',                description: ''}
+  - {pattern: '^02(51[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Canberra, Queanbeyan, Yass',               description: ''}
+  - {pattern: '^02(52[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Canberra, Queanbeyan, Yass',               description: ''}
+  - {pattern: '^02(53[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bathurst, Orange',                         description: ''}
+  - {pattern: '^02(54[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bega, Merimbula, Tathra, Cooma',           description: ''}
+  - {pattern: '^02(55[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Kempsey, Taree, Lord Howe Island, Muswellbrook', description: ''}
+  - {pattern: '^02(56[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Coffs Harbour, Grafton, Lismore',          description: ''}
+  - {pattern: '^02(57[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Armidale, Tamworth, Northern Tablelands',  description: ''}
+  - {pattern: '^02(58[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bourke, Dubbo, Far West',                  description: ''}
+  - {pattern: '^02(59[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Griffith, Wagga Wagga, Riverina',          description: ''}
+  - {pattern: '^02(60[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Albury, Corryong, Wodonga',                description: ''}
+  - {pattern: '^02(61[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Canberra, Queanbeyan, Yass',               description: ''}
+  - {pattern: '^02(62[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Canberra, Queanbeyan, Yass',               description: ''}
+  - {pattern: '^02(63[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bathurst, Orange, Cowra',                  description: ''}
+  - {pattern: '^02(64[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bega, Merimbula, Tathra, Cooma',           description: ''}
+  - {pattern: '^02(65[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Port Macquarie, Kempsey, Taree, Lord Howe Island, Muswellbrook', description: ''}
+  - {pattern: '^02(66[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Coffs Harbour, Grafton, Lismore',          description: ''}
+  - {pattern: '^02(67[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Armidale, Glen Innes, Gunnedah, Inverell, Moree, Narrabri, Tamworth', description: ''}
+  - {pattern: '^02(68[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Bourke, Dubbo, Far West',                  description: ''}
+  - {pattern: '^02(69[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Griffith, Wagga Wagga, Riverina',          description: ''}
+  - {pattern: '^02(7[0-9]{7})$',          valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney',                                   description: ''}
+  - {pattern: '^02(73[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South, South East',                 description: ''}
+  - {pattern: '^02(74[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North, Northern Beaches, Dural',    description: ''}
+  - {pattern: '^02(75[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South West, Sutherland Shire',      description: ''}
+  - {pattern: '^02(77[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/West, Liverpool',                   description: ''}
+  - {pattern: '^02(78[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North West, Blacktown',             description: ''}
+  - {pattern: '^02(8[0-9]{7})$',          valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney',                                   description: ''}
+  - {pattern: '^02(80[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre, Non geographic',       description: ''}
+  - {pattern: '^02(81[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/West, Liverpool',                   description: ''}
+  - {pattern: '^02(82[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre',                       description: ''}
+  - {pattern: '^02(83[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South, South East',                 description: ''}
+  - {pattern: '^02(84[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North, Northern Beaches, Dural',    description: ''}
+  - {pattern: '^02(85[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South West, Sutherland Shire',      description: ''}
+  - {pattern: '^02(86[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre, North West, Blacktown', description: ''}
+  - {pattern: '^02(87[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/West, Liverpool',                   description: ''}
+  - {pattern: '^02(88[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North West, Blacktown',             description: ''}
+  - {pattern: '^02(89[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre, North, Northern Beaches, Dural, Non geographic', description: ''}
+  - {pattern: '^02(9[0-9]{7})$',          valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney',                                   description: ''}
+  - {pattern: '^02(90[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre, Non geographic',       description: ''}
+  - {pattern: '^02(91[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney, Non geographic',                   description: ''}
+  - {pattern: '^02(913[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South, South East',                 description: ''}
+  - {pattern: '^02(914[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North',                             description: ''}
+  - {pattern: '^02(915[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South West',                        description: ''}
+  - {pattern: '^02(918[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North West',                        description: ''}
+  - {pattern: '^02(92[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre',                       description: ''}
+  - {pattern: '^02(93[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South, South East',                 description: ''}
+  - {pattern: '^02(94[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North, Northern Beaches, Dural',    description: ''}
+  - {pattern: '^02(95[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/South West, South, South East, Sutherland Shire', description: ''}
+  - {pattern: '^02(96[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/West',                              description: ''}
+  - {pattern: '^02(960[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/Liverpool',                         description: ''}
+  - {pattern: '^02(961[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/Liverpool',                         description: ''}
+  - {pattern: '^02(962[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/Blacktown',                         description: ''}
+  - {pattern: '^02(965[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/Dural',                             description: ''}
+  - {pattern: '^02(966[0-9]{5})$',        valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre',                       description: ''}
+  - {pattern: '^02(97[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/West, Liverpool',                   description: ''}
+  - {pattern: '^02(98[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/North West, Blacktown, Liverpool',  description: ''}
+  - {pattern: '^02(99[0-9]{6})$',         valid: true,  area_code: '02', type: 'landline', carrier: '', state: '', region: 'Central East/Sydney/City Centre, North, Northern Beaches, Dural, Non geographic', description: ''}
+  # South-east region (03)
+  - {pattern: '^03(32[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Geelong, Colac', description: ''}
+  - {pattern: '^03(33[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Ballarat', description: ''}
+  - {pattern: '^03(34[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Bendigo', description: ''}
+  - {pattern: '^03(40[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Mildura, Balranald', description: ''}
+  - {pattern: '^03(41[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Traralgon, Bairnsdale', description: ''}
+  - {pattern: '^03(42[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Geelong, Colac', description: ''}
+  - {pattern: '^03(43[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Ballarat', description: ''}
+  - {pattern: '^03(44[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Bendigo', description: ''}
+  - {pattern: '^03(45[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Warrnambool', description: ''}
+  - {pattern: '^03(47[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Wangaratta', description: ''}
+  - {pattern: '^03(48[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Deniliquin, Numurkah, Shepparton', description: ''}
+  - {pattern: '^03(49[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Mornington', description: ''}
+  - {pattern: '^03(50[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Mildura, Balranald', description: ''}
+  - {pattern: '^03(51[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Traralgon, Bairnsdale', description: ''}
+  - {pattern: '^03(52[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Colac, Geelong', description: ''}
+  - {pattern: '^03(53[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Ballarat', description: ''}
+  - {pattern: '^03(54[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Bendigo', description: ''}
+  - {pattern: '^03(55[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Warrnambool, Casterton, Portland', description: ''}
+  - {pattern: '^03(56[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Foster, Warragul, Drouin', description: ''}
+  - {pattern: '^03(57[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Wangaratta', description: ''}
+  - {pattern: '^03(58[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Deniliquin, Shepparton', description: ''}
+  - {pattern: '^03(59[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Mornington, Pakenham, Rosebud, Warburton, Yarra Ranges', description: ''}
+  - {pattern: '^03(61[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Hobart', description: ''}
+  - {pattern: '^03(62[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Hobart', description: ''}
+  - {pattern: '^03(63[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Launceston', description: ''}
+  - {pattern: '^03(64[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Devonport, Burnie, Queenstown', description: ''}
+  - {pattern: '^03(65[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Devonport, Burnie, Queenstown', description: ''}
+  - {pattern: '^03(67[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Launceston', description: ''}
+  - {pattern: '^03(7[0-9]{7})$',          valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne', description: ''}
+  - {pattern: '^03(70[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Non geographic', description: ''}
+  - {pattern: '^03(71[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer North', description: ''}
+  - {pattern: '^03(72[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer East', description: ''}
+  - {pattern: '^03(73[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/West', description: ''}
+  - {pattern: '^03(75[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/South East', description: ''}
+  - {pattern: '^03(77[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer West', description: ''}
+  - {pattern: '^03(78[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/East', description: ''}
+  - {pattern: '^03(79[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer South East', description: ''}
+  - {pattern: '^03(8[0-9]{7})$',          valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne', description: ''}
+  - {pattern: '^03(80[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer West', description: ''}
+  - {pattern: '^03(81[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer North', description: ''}
+  - {pattern: '^03(82[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer East', description: ''}
+  - {pattern: '^03(83[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/West', description: ''}
+  - {pattern: '^03(84[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/North East', description: ''}
+  - {pattern: '^03(85[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/South East', description: ''}
+  - {pattern: '^03(86[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/City, South', description: ''}
+  - {pattern: '^03(87[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer West, Outer North, Outer East, Outer South East', description: ''}
+  - {pattern: '^03(88[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/East', description: ''}
+  - {pattern: '^03(89[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer South East', description: ''}
+  - {pattern: '^03(9[0-9]{7})$',          valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne', description: ''}
+  - {pattern: '^03(90[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Non geographic, VoIP', description: ''}
+  - {pattern: '^03(91[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/City, South', description: ''}
+  - {pattern: '^03(92[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Non geographic', description: ''}
+  - {pattern: '^03(93[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/West', description: ''}
+  - {pattern: '^03(94[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/North East', description: ''}
+  - {pattern: '^03(95[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/South East', description: ''}
+  - {pattern: '^03(96[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/City, South', description: ''}
+  - {pattern: '^03(97[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Outer West, Outer North, Outer East, Outer South East', description: ''}
+  - {pattern: '^03(98[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/East', description: ''}
+  - {pattern: '^03(99[0-9]{6})$',         valid: true,  area_code: '03', type: 'landline', carrier: '', state: '', region: 'South East/Melbourne/Non geographic', description: ''}
+  # North-east region (07)
+  - {pattern: '^07(2[0-9]{7})$',          valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane, Bribie Island', description: ''}
+  - {pattern: '^07(21[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Non geographic', description: ''}
+  - {pattern: '^07(22[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(24[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/South East', description: ''}
+  - {pattern: '^07(28[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(3[0-9]{7})$',          valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane, Bribie Island', description: ''}
+  - {pattern: '^07(30[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre, South East, Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(31[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Non geographic', description: ''}
+  - {pattern: '^07(320[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(321[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Non geographic', description: ''}
+  - {pattern: '^07(322[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(323[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(324[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/South East', description: ''}
+  - {pattern: '^07(325[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North, North West', description: ''}
+  - {pattern: '^07(326[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North, North West', description: ''}
+  - {pattern: '^07(327[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/West, South West', description: ''}
+  - {pattern: '^07(328[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(329[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/East', description: ''}
+  - {pattern: '^07(330[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(331[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Non geographic', description: ''}
+  - {pattern: '^07(332[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(333[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(335[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North, North West', description: ''}
+  - {pattern: '^07(336[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North East', description: ''}
+  - {pattern: '^07(337[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/West, South West', description: ''}
+  - {pattern: '^07(338[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(339[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/East', description: ''}
+  - {pattern: '^07(34[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/risbane/South East, Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(35[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North, North West', description: ''}
+  - {pattern: '^07(36[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North East', description: ''}
+  - {pattern: '^07(37[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/West, South West', description: ''}
+  - {pattern: '^07(380[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(381[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Non geographic', description: ''}
+  - {pattern: '^07(382[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(383[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/City Centre', description: ''}
+  - {pattern: '^07(384[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/South East', description: ''}
+  - {pattern: '^07(385[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North, North West', description: ''}
+  - {pattern: '^07(386[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/North East', description: ''}
+  - {pattern: '^07(387[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/West, South West', description: ''}
+  - {pattern: '^07(388[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/Cleveland, Beenleigh, Ipswich, Samford, Redcliffe', description: ''}
+  - {pattern: '^07(389[0-9]{5})$',        valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/East', description: ''}
+  - {pattern: '^07(39[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Brisbane/East', description: ''}
+  - {pattern: '^07(40[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Cairns, Far North Queensland', description: ''}
+  - {pattern: '^07(41[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Bundaberg, Kingaroy', description: ''}
+  - {pattern: '^07(42[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Cairns', description: ''}
+  - {pattern: '^07(43[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Bundaberg, Kingaroy', description: ''}
+  - {pattern: '^07(44[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Townsville, North Queensland', description: ''}
+  - {pattern: '^07(45[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Toowoomba, Roma, south-west', description: ''}
+  - {pattern: '^07(6[0-9]{7})$',          valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Toowoomba, Roma, South West', description: ''}
+  - {pattern: '^07(47[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Townsville, North Queensland', description: ''}
+  - {pattern: '^07(48[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Rockhampton, Mackay', description: ''}
+  - {pattern: '^07(49[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Rockhampton, Mackay, Gladstone', description: ''}
+  - {pattern: '^07(52[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Sunshine Coast, Esk, Nambour, Gatton, Caboolture', description: ''}
+  - {pattern: '^07(53[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Sunshine Coast, Esk, Nambour, Gatton, Caboolture', description: ''}
+  - {pattern: '^07(54[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Sunshine Coast, Esk, Nambour, Gatton, Caboolture', description: ''}
+  - {pattern: '^07(55[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Gold Coast, Beaudesert', description: ''}
+  - {pattern: '^07(56[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Gold Coast, Beaudesert', description: ''}
+  - {pattern: '^07(57[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Gold Coast, Beaudesert', description: ''}
+  - {pattern: '^07(70[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Cairns, Far North Queensland', description: ''}
+  - {pattern: '^07(75[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Inglewood, Toowoomba', description: ''}
+  - {pattern: '^07(76[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Inglewood, Toowoomba', description: ''}
+  - {pattern: '^07(77[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Townsville, North Queensland', description: ''}
+  - {pattern: '^07(79[0-9]{6})$',         valid: true,  area_code: '07', type: 'landline', carrier: '', state: '', region: 'North East/Rockhampton, Mackay, Gladstone', description: ''}
+  # Central and West region (08)
+  - {pattern: '^08(25[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Riverland, Murraylands', description: ''}
+  - {pattern: '^08(26[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Ceduna', description: ''}
+  - {pattern: '^08(51[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Port Hedland', description: ''}
+  - {pattern: '^08(52[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(53[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(54[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(55[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Bullsbrook East, Northam, Pinjarra-Mandurah', description: ''}
+  - {pattern: '^08(58[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Albany', description: ''}
+  - {pattern: '^08(60[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Kalgoorlie, Merredin, Goldfields-Esperance', description: ''}
+  - {pattern: '^08(61[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(62[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(63[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(64[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(65[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(66[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Moora', description: ''}
+  - {pattern: '^08(67[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Bridgetown, Bunbury', description: ''}
+  - {pattern: '^08(68[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Albany', description: ''}
+  - {pattern: '^08(69[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Geraldton', description: ''}
+  - {pattern: '^08(70[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide/General, Non geographic', description: ''}
+  - {pattern: '^08(71[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(72[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(73[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(74[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(75[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Riverland, Murraylands', description: ''}
+  - {pattern: '^08(76[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Ceduna', description: ''}
+  - {pattern: '^08(77[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/South East', description: ''}
+  - {pattern: '^08(78[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Mid North', description: ''}
+  - {pattern: '^08(79[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Northern Territory', description: ''}
+  - {pattern: '^08(80[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Broken Hill', description: ''}
+  - {pattern: '^08(81[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(82[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(83[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(84[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Adelaide', description: ''}
+  - {pattern: '^08(85[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Riverland, Murraylands', description: ''}
+  - {pattern: '^08(86[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Ceduna', description: ''}
+  - {pattern: '^08(87[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/South East', description: ''}
+  - {pattern: '^08(88[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Mid North', description: ''}
+  - {pattern: '^08(89[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Northern Territory', description: ''}
+  - {pattern: '^08(90[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Kalgoorlie', description: ''}
+  - {pattern: '^08(91[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Derby, Cocos-Keeling, Christmas Islands', description: ''}
+  - {pattern: '^08(92[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(93[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(94[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Perth', description: ''}
+  - {pattern: '^08(95[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Bullsbrook East, Northam, Pinjarra-Mandurah', description: ''}
+  - {pattern: '^08(96[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Moora', description: ''}
+  - {pattern: '^08(97[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Bunbury, Busselton, Bridgetown, Collie', description: ''}
+  - {pattern: '^08(98[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Albany', description: ''}
+  - {pattern: '^08(99[0-9]{6})$',         valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central, West/Geraldton', description: ''}
+  # Central and West region (08) - Adelaide
+  - {pattern: '^08(710[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(711[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(712[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(713[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(714[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(715[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(716[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(717[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(718[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(719[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(720[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(721[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(722[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(723[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(724[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(725[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(726[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(727[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(728[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(729[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(730[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(731[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(732[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(733[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(734[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(735[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(736[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(737[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(738[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(739[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(740[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(741[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(742[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(743[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(744[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(745[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(746[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(747[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(748[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(749[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(810[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(811[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(812[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(813[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(814[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(815[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(816[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(817[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(818[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(819[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(820[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(821[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(822[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(823[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(824[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(825[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(826[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(827[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(828[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(829[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(830[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(831[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(832[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(833[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(834[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(835[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(836[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(837[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(838[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(839[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(840[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(841[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/City Centre', description: ''}
+  - {pattern: '^08(842[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Non geographic', description: ''}
+  - {pattern: '^08(843[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/East', description: ''}
+  - {pattern: '^08(844[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North West', description: ''}
+  - {pattern: '^08(845[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/West', description: ''}
+  - {pattern: '^08(846[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/North East', description: ''}
+  - {pattern: '^08(847[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  - {pattern: '^08(848[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/Salisbury, Woodside, Mt. Barker, McLaren Vale', description: ''}
+  - {pattern: '^08(849[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'Central/Adelaide/South', description: ''}
+  # Central and West region (08) - Perth
+  - {pattern: '^08(520[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Outer North, North, North West', description: ''}
+  - {pattern: '^08(521[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(522[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(523[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(527[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(529[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(530[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Outer North, North, North West', description: ''}
+  - {pattern: '^08(531[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(532[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(533[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(537[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(539[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(540[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Outer North, North, North West', description: ''}
+  - {pattern: '^08(541[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(542[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(543[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(547[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(549[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(610[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(611[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(612[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(613[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(614[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(615[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(616[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(617[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(618[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(619[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(620[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West, Outer North', description: ''}
+  - {pattern: '^08(621[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(622[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(623[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(624[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West', description: ''}
+  - {pattern: '^08(625[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/East, South East', description: ''}
+  - {pattern: '^08(626[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(627[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(628[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/West', description: ''}
+  - {pattern: '^08(629[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(630[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West, Outer North', description: ''}
+  - {pattern: '^08(631[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(632[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(633[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(634[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West', description: ''}
+  - {pattern: '^08(635[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/East, South East', description: ''}
+  - {pattern: '^08(636[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(637[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(638[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/West', description: ''}
+  - {pattern: '^08(639[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(640[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West, Outer North', description: ''}
+  - {pattern: '^08(641[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(642[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(643[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(644[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West', description: ''}
+  - {pattern: '^08(645[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/East, South East', description: ''}
+  - {pattern: '^08(646[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(647[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(648[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/West', description: ''}
+  - {pattern: '^08(649[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(650[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(654[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(655[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(656[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(657[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(658[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(659[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(920[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West, Outer North', description: ''}
+  - {pattern: '^08(921[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(922[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(923[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(924[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West', description: ''}
+  - {pattern: '^08(925[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/East, South East', description: ''}
+  - {pattern: '^08(926[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(927[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(928[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/West', description: ''}
+  - {pattern: '^08(929[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(930[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West, Outer North', description: ''}
+  - {pattern: '^08(931[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(932[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(933[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(934[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West', description: ''}
+  - {pattern: '^08(935[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/East, South East', description: ''}
+  - {pattern: '^08(936[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(937[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(938[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/West', description: ''}
+  - {pattern: '^08(939[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  - {pattern: '^08(940[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West, Outer North', description: ''}
+  - {pattern: '^08(941[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(942[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(943[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/City, South West', description: ''}
+  - {pattern: '^08(944[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North, North West', description: ''}
+  - {pattern: '^08(945[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/East, South East', description: ''}
+  - {pattern: '^08(946[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Non geographic', description: ''}
+  - {pattern: '^08(947[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/North East', description: ''}
+  - {pattern: '^08(948[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/West', description: ''}
+  - {pattern: '^08(949[0-9]{5})$',        valid: true,  area_code: '08', type: 'landline', carrier: '', state: '', region: 'West/Perth/Herne Hill, Kalamunda, Armadale, Spearwood, Rottnest Island', description: ''}
+  # Mobile
+  - {pattern: '^(0400[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(040[1-3][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(040[4-6][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(040[7-9][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0410[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(041[1-3][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(041[4-6][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(041[7-9][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0420[2-9][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(042[1-3][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(042[4-6][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(042[7-9][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(04200[0-1][0-9]{4})$',   valid: true,  area_code: '', type: 'mobile', carrier: 'Rail Corporation New South Wales', state: '', region: '', description: ''}
+  - {pattern: '^(042002[0-9]{4})$',       valid: true,  area_code: '', type: 'mobile', carrier: 'Dialogue Communications Pty Limited', state: '', region: '', description: ''}
+  - {pattern: '^(042003[0-9]{4})$',       valid: true,  area_code: '', type: 'mobile', carrier: 'Symbio Network Pty Ltd', state: '', region: '', description: ''}
+  - {pattern: '^(04200[4-9][0-9]{4})$',   valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(042010[0-9]{4})$',       valid: true,  area_code: '', type: 'mobile', carrier: 'Pivotel Satellite Pty Limited', state: '', region: '', description: ''}
+  - {pattern: '^(0420119[0-9]{3})$',      valid: true,  area_code: '', type: 'mobile', carrier: 'COMPATEL Limited', state: '', region: '', description: ''}
+  - {pattern: '^(04201[2-9][0-9]{4})$',   valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0430[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(043[1-2][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(0433[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(043[4-5][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(0436[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(043[7-9][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(044[0-3][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0444[0-3][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(04444[0-9]{5})$',        valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0444[5-9][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(044[5-6][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(044[7-8][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0449[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(045[0-1][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(0452[0-6][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Vodafone', state: '', region: '', description: ''}
+  - {pattern: '^(0452[7-9][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(045[3-4][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(045[5-9][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(046[0-5][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0466[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(0467[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0468[0-2][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0468[3-9][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(0469[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Lycamobile', state: '', region: '', description: ''}
+  - {pattern: '^(0470[0-7][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Lycamobile', state: '', region: '', description: ''}
+  - {pattern: '^(0470[8-9][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(047[1-2][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(047[3-7][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0478[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(0479[0-1][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(0479[2-9][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0480[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0481[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Optus', state: '', region: '', description: ''}
+  - {pattern: '^(048[2-3][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0484[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(048[5-6][0-9]{6})$',     valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(0487[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0488[0-7][0-9]{5})$',    valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(04888[0-9]{5})$',        valid: true,  area_code: '', type: 'mobile', carrier: 'My Number Pty Ltd', state: '', region: '', description: ''}
+  - {pattern: '^(04889[0-9]{5})$',        valid: true,  area_code: '', type: 'mobile', carrier: 'Telstra', state: '', region: '', description: ''}
+  - {pattern: '^(0489[0-9]{6})$',         valid: true,  area_code: '', type: 'mobile', carrier: 'Spare', state: '', region: '', description: ''}
+  - {pattern: '^(048984[0-9]{4})$',       valid: true,  area_code: '', type: 'mobile', carrier: 'Victorian Rail Track', state: '', region: '', description: ''}
+  - {pattern: '^(048990[0-9]{4})$',       valid: true,  area_code: '', type: 'mobile', carrier: 'Novatel Telephony Pty Ltd', state: '', region: '', description: ''}
+  # Satellite phone numbers (014)
+  - {pattern: '^(014[0-9]{6,7})$',       valid: true,  area_code: '', type: 'satellite', carrier: '', state: '', region: '', description: ''}
+  # Location independent communications service (0550)
+  - {pattern: '^(0550[0-9]{6})$',       valid: true,  area_code: '', type: 'voip', carrier: '', state: '', region: '', description: ''}
+  # Data numbers (0198)
+  - {pattern: '^(0198[0-9]{6})$',       valid: true,  area_code: '', type: 'data', carrier: '', state: '', region: '', description: ''}
+  # Numbers reserved for fictitious use
+  - {pattern: '^01(5550[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^01(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^02(5550[0-9]{4,5})$',     valid: false, area_code: '02', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^02(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^03(5550[0-9]{4,5})$',     valid: false, area_code: '03', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^03(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^04(5550[0-9]{4,5})$',     valid: false, area_code: '04', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^04(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^05(5550[0-9]{4,5})$',     valid: false, area_code: '05', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^05(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^06(5550[0-9]{4,5})$',     valid: false, area_code: '06', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^06(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^07(5550[0-9]{4,5})$',     valid: false, area_code: '07', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^07(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^08(5550[0-9]{4,5})$',     valid: false, area_code: '08', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^08(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^09(5550[0-9]{4,5})$',     valid: false, area_code: '09', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+  - {pattern: '^09(7010[0-9]{4,5})$',     valid: false, area_code: '01', type: 'fictitious', carrier: '', state: '', region: '', description: 'Number reserved for fictitious use'}
+
+
+
+
