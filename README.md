@@ -7,7 +7,7 @@ concentrates on providing information about the phone number provided.
 
 Information available includes the number type (landline, mobile etc)
 
-In addition to the area code you can get the geo region of the number (where available) and for mobile numbers the 
+In addition to the area-code you can get the geo region of the number (where available) and for mobile numbers the 
 carrier is provided.
 
 
