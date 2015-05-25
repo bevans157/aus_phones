@@ -100,23 +100,24 @@ class AusPhones
   end
 
   def format_local
-    if (phone_number.number.to_s.size == 0)
+    size = phone_number.number.to_s.size
+    if (size == 0)
       return nil
-    elsif (phone_number.number.to_s.size == 12)
+    elsif (size == 12)
       return phone_number.number.sub(/^([0-9]{4})([0-9]{4})([0-9]{4})$/, '\1 \2 \3')
-    elsif (phone_number.number.to_s.size == 11)
+    elsif (size == 11)
       return phone_number.number.sub(/^([0-9]{4})([0-9]{3})([0-9]{4})$/, '\1 \2 \3')
-    elsif (phone_number.number.to_s.size == 10)
+    elsif (size == 10)
       return phone_number.number.sub(/^([0-9]{4})([0-9]{3})([0-9]{3})$/, '\1 \2 \3')
-    elsif (phone_number.number.to_s.size == 9)
+    elsif (size == 9)
       return phone_number.number.sub(/^([0-9]{3})([0-9]{3})([0-9]{3})$/, '\1 \2 \3')
-    elsif (phone_number.number.to_s.size == 8)
+    elsif (size == 8)
       return phone_number.number.sub(/^([0-9]{4})([0-9]{4})$/, '\1 \2')
-    elsif (phone_number.number.to_s.size == 7)
+    elsif (size == 7)
       return phone_number.number.sub(/^([0-9]{3})([0-9]{4})$/, '\1 \2')
-    elsif (phone_number.number.to_s.size == 6)
+    elsif (size == 6)
       return phone_number.number.sub(/^([0-9]{3})([0-9]{3})$/, '\1 \2')
-    elsif (phone_number.number.to_s.size < 6)
+    elsif (size < 6)
       return phone_number.number
     end
   end
