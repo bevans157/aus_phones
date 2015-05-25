@@ -152,19 +152,35 @@ RSpec.describe AusPhones do
   it 'generates number for dialing local' do
     expect(AusPhones.new('(02) 3300 0000').dial_local).to eq('33000000')
     expect(AusPhones.new('(0)488 000 000').dial_local).to eq('0488000000')
+    expect(AusPhones.new('1800 801 920').dial_local).to eq('1800801920')
   end
 
   it 'generates number for dialing domestic' do
     expect(AusPhones.new('(02) 3300 0000').dial_domestic).to eq('0233000000')
     expect(AusPhones.new('(0)488 000 000').dial_domestic).to eq('0488000000')
+    expect(AusPhones.new('1800 801 920').dial_domestic).to eq('1800801920')
   end
 
   it 'generates number for dialing international' do
     expect(AusPhones.new('(02) 3300 0000').dial_international).to eq('61233000000')
     expect(AusPhones.new('(0)488 000 000').dial_international).to eq('61488000000')
+    expect(AusPhones.new('1800 801 920').dial_international).to eq(nil)
   end
 
 
+  it 'format numbers for dialing local' do
+    expect(AusPhones.new('(02) 3300 0000').format_local).to eq('3300 0000')
+    expect(AusPhones.new('(0)488 000 000').format_local).to eq('0488 000 000')
+  end
 
+  it 'format numbers for dialing domestic' do
+    expect(AusPhones.new('(02) 3300 0000').format_domestic).to eq('(02) 3300 0000')
+    expect(AusPhones.new('(0)488 000 000').format_domestic).to eq('0488 000 000')
+  end
+
+  it 'format numbers for international dialing' do
+    expect(AusPhones.new('(02) 3300 0000').format_international).to eq('+61 (2) 3300 0000')
+    expect(AusPhones.new('(0)488 000 000').format_international).to eq('+61 488 000 000')
+  end
 
 end

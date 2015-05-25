@@ -83,7 +83,7 @@ class AusPhones
   end
 
   def dial_domestic
-    if (phone_number.number.to_s.size == 0) then
+    if (phone_number.number.to_s.size == 0)
       return nil
     else
       "#{phone_number.area_code}#{phone_number.number}"
@@ -91,7 +91,7 @@ class AusPhones
   end
 
   def dial_international
-    if (phone_number.area_code.start_with?('0') || phone_number.number.start_with?('0')) then
+    if (phone_number.area_code.start_with?('0') || phone_number.number.start_with?('0'))
       dial = "#{phone_number.area_code}#{phone_number.number}"
       return dial.sub(/^0/, CNF.prefix)
     else
@@ -103,30 +103,48 @@ class AusPhones
     if (phone_number.number.to_s.size == 0)
       return nil
     elsif (phone_number.number.to_s.size == 12)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{4})([0-9]{4})([0-9]{4})$/, '\1 \2 \3')
     elsif (phone_number.number.to_s.size == 11)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{4})([0-9]{3})([0-9]{4})$/, '\1 \2 \3')
     elsif (phone_number.number.to_s.size == 10)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{4})([0-9]{3})([0-9]{3})$/, '\1 \2 \3')
     elsif (phone_number.number.to_s.size == 9)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{3})([0-9]{3})([0-9]{3})$/, '\1 \2 \3')
     elsif (phone_number.number.to_s.size == 8)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{4})([0-9]{4})$/, '\1 \2')
     elsif (phone_number.number.to_s.size == 7)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{3})([0-9]{4})$/, '\1 \2')
     elsif (phone_number.number.to_s.size == 6)
-      return phone_number.number
+      return phone_number.number.sub(/^([0-9]{3})([0-9]{3})$/, '\1 \2')
     elsif (phone_number.number.to_s.size < 6)
       return phone_number.number
     end
   end
 
   def format_domestic
-    #
+    if phone_number.number.to_s.size == 0
+      nil
+    else
+      if phone_number.area_code.to_s.size == 0
+        format_local
+      else
+        "(#{phone_number.area_code}) #{format_local}"
+      end
+    end
   end
 
   def format_international
-    #
+    if phone_number.area_code.start_with?('0')
+      area_code = phone_number.area_code.sub(/^0/, '')
+      number = format_local
+      return "+#{CNF.prefix} (#{area_code}) #{number}"
+    elsif phone_number.number.start_with?('0')
+      number = format_local
+      number = number.sub(/^0/, '')
+      return "+#{CNF.prefix} #{number}"
+   else
+      return nil
+    end
   end
 
 

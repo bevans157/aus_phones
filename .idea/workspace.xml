@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ade3d03f-933e-4cca-9894-8da19cfc0731" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/aus_phones.rb" afterPath="$PROJECT_DIR$/lib/aus_phones.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/aus_phones_spec.rb" afterPath="$PROJECT_DIR$/spec/aus_phones_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aus_phones.iws" />
@@ -37,8 +38,8 @@
       <file leaf-file-name="aus_phones.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/aus_phones.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8794326">
-              <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+            <state vertical-scroll-proportion="2.2757092">
+              <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/spec/aus_phones_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
+              <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,8 +121,8 @@
       <file leaf-file-name="phones.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/phones.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6296296">
-              <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+            <state vertical-scroll-proportion="-28.962963">
+              <caret line="52" column="27" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -140,9 +141,9 @@
         <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/config/phones.yml" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/spec/aus_phones_spec.rb" />
         <option value="$PROJECT_DIR$/aus_phones.gemspec" />
         <option value="$PROJECT_DIR$/lib/aus_phones/version.rb" />
+        <option value="$PROJECT_DIR$/spec/aus_phones_spec.rb" />
         <option value="$PROJECT_DIR$/lib/aus_phones.rb" />
       </list>
     </option>
@@ -426,7 +427,13 @@
       <option name="project" value="LOCAL" />
       <updated>1432482329905</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Formatt local stub">
+      <created>1432501394247</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1432501394247</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -470,7 +477,8 @@
     <MESSAGE value="Added dialing strings and tests" />
     <MESSAGE value="Added homepage to gemspec" />
     <MESSAGE value="Updated version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated version" />
+    <MESSAGE value="Formatt local stub" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatt local stub" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -520,22 +528,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/phones.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6296296">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/aus_phones_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="70" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aus_phones.gemspec">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -552,10 +544,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/phones.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.962963">
+          <caret line="52" column="27" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/aus_phones_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/aus_phones.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8794326">
-          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        <state vertical-scroll-proportion="2.2757092">
+          <caret line="151" column="0" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
           <folding />
         </state>
       </provider>
