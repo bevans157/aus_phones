@@ -38,7 +38,7 @@ my_phone4 = AusPhones.new '0488-000-000'
 my_phone5 = AusPhones.new '1800 00 00 00'
 #etc
 
-my_phone1 = AusPhones.new '+61 2 9900 0000'
+my_phone = AusPhones.new '+61 2 9900 0000'
 puts my_phone.is_valid?             # [true/false] is valid Australian phone number
 puts my_phone.is_form_valid?        # [true/false] is valid number for form entry
 puts my_phone.is_mobile?            # [true/false] is mobile phone number
