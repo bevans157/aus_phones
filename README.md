@@ -15,9 +15,7 @@ carrier is provided.
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'aus_phones'
-```
+    gem 'aus_phones'
 
 And then execute:
 
