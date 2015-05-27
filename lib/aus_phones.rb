@@ -91,7 +91,7 @@ class AusPhones
   end
 
   def dial_international
-    if (phone_number.area_code.start_with?('0') || phone_number.number.start_with?('0'))
+    if (phone_number.area_code.to_s.start_with?('0') || phone_number.number.start_with?('0'))
       dial = "#{phone_number.area_code}#{phone_number.number}"
       return dial.sub(/^0/, CNF.prefix)
     else
@@ -135,7 +135,7 @@ class AusPhones
   end
 
   def format_international
-    if phone_number.area_code.start_with?('0')
+    if phone_number.area_code.to_s.start_with?('0')
       area_code = phone_number.area_code.sub(/^0/, '')
       number = format_local
       return "+#{CNF.prefix} (#{area_code}) #{number}"
