@@ -10,6 +10,9 @@ Information available includes the number type (landline, mobile etc)
 In addition to the area-code you can get the geo region of the number (where available) and for mobile numbers the 
 carrier is provided.
 
+State and region data may contain multiple possible values as number blocks are distributed by exchanges that service 
+multiple areas.
+
 
 ## Installation
 
@@ -34,7 +37,7 @@ my_phone2 = AusPhones.new '(02) 9900 0000'
 my_phone3 = AusPhones.new '+61 488 000 000'
 my_phone4 = AusPhones.new '0488-000-000'
 my_phone5 = AusPhones.new '1800 00 00 00'
-#etc
+# etc
 
 my_phone = AusPhones.new '+61 2 9900 0000'
 puts my_phone.is_valid?             # [true/false] is valid Australian phone number
@@ -47,8 +50,9 @@ puts my_phone.is_data?              # [true/false] is data phone number
 puts my_phone.is_nongeo?            # [true/false] is non-geographical phone number
 puts my_phone.is_test?              # [true/false] is test number
 puts my_phone.is_fictitious?        # [true/false] is fictitious number (film, tv, print, advertising etc)
-puts my_phone.type                  # ['landline', 'mobile', 'satellite', 'nongeo', 'test'] type of number
-puts my_phone.region                # [string] landlines only, delimited set of regions/subreagions/sub-subregions
+puts my_phone.type                  # ['landline', 'mobile', 'satellite', 'nongeo', 'test', 'emergency', 'voip', 'data'] type of number
+puts my_phone.state                 # [string] 1 or more 2/3 letter uppercase Australian state or territory codes (e.g. NT, NSW, QLD, etc)
+puts my_phone.region                # [string] landlines only, delimited set of regions/subreagions/subsubregions
 puts my_phone.carrier               # [string] mobiles only, name identifier for phone carrier 
 puts my_phone.description           # [string] description of phone function for nongeo and test numbers
 puts my_phone.area_code             # [string] 2 digit area code prefix for landlines
